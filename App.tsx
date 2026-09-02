@@ -1,9 +1,11 @@
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-
+import HomePage from './src/pages/HomePage/index';
 function App() {
   return (
     <SafeAreaProvider>
-      <SafeAreaView></SafeAreaView>
+      <SafeAreaView>
+        <HomePage />
+      </SafeAreaView>
     </SafeAreaProvider>
   );
 }
