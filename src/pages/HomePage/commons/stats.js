@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import StatsItem from './statsItem';
+import { useSelector } from 'react-redux';
+import Footer from '../../../commons/footer/footer';
 
 const Stats = () => {
+  const text = useSelector(state => state.stats[0]);
+
   const stats = {
     message: 'The data were fetched successfully.',
     data: {
@@ -119,6 +123,8 @@ const Stats = () => {
 
   return (
     <ScrollView>
+      <Text>{text}</Text>
+
       <StatsItem
         statsAll={stats.data.stats.personnel_units}
         statsDay={stats.data.increase.personnel_units}
@@ -194,6 +200,7 @@ const Stats = () => {
         statsDay={stats.data.increase.submarines}
         terms={terms.data.submarines}
       />
+      <Footer />
     </ScrollView>
   );
 };

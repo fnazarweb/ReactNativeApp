@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 
 const StatsItem = ({ statsAll, statsDay, terms }) => {

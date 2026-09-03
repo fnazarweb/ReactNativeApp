@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
+import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 import LinearGradient from 'react-native-linear-gradient';
-import Stats from './commons/stats';
-import Header from './commons/header';
-import { useDispatch } from 'react-redux';
-import { addStats } from '../../redux/statsSlice';
+import CalendarItem from './CalendarItem';
 
-const HomePage = () => {
-  const dispatch = useDispatch();
-  const text = 'test';
-
-  useEffect(() => {
-    dispatch(addStats(text));
-  }, [dispatch]);
+const Calendar = () => {
   return (
     <SafeAreaView edges={['top', 'left', 'right']}>
       <LinearGradient
@@ -24,18 +14,17 @@ const HomePage = () => {
         locations={[0, 0.45, 0.75]}
         style={styles.linearGradient}
       >
-        <Header />
-        <Stats />
+        <CalendarItem />
       </LinearGradient>
     </SafeAreaView>
   );
 };
 
-var styles = StyleSheet.create({
+export default Calendar;
+
+const styles = StyleSheet.create({
   linearGradient: {
     height: '100%',
     padding: 5,
   },
 });
-
-export default HomePage;
