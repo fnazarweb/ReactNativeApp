@@ -1,6 +1,25 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 const Header = () => {
+  const now = new Date();
+  const month = now.getMonth() + 1;
+  const day = now.getDate();
+  const months = [
+    '',
+    'Січень',
+    'Лютий',
+    'Березень',
+    'Квітень',
+    'Травень',
+    'Червень',
+    'Липень',
+    'Серпень',
+    'Вересень',
+    'Жовтень',
+    'Листопад',
+    'Грудень',
+  ];
+
   return (
     <View style={styles.header}>
       <Text style={styles.title}>Генеральний штаб ЗС України інформує </Text>
@@ -9,7 +28,9 @@ const Header = () => {
       </Text>
 
       <View style={styles.blockData}>
-        <Text style={styles.data}>7 червня</Text>
+        <Text style={styles.data}>
+          {day} {months[month]}
+        </Text>
         <Text style={styles.day}>1500 день війни</Text>
       </View>
     </View>
