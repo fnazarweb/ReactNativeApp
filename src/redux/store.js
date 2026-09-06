@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import statsSlice from './statsSlice';
-import dateSlice from './dateSlice';
+import statsSlice from './stats/statsSlice';
+import dateSlice from './date/dateSlice';
 
 export const store = configureStore({
   reducer: {

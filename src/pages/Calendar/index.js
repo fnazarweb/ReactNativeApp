@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import CalendarItem from './commons/CalendarItem';
 import DateInfo from './commons/DateInfo';

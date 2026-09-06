@@ -1,35 +1,34 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Calendar, LocaleConfig } from 'react-native-calendars';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeData } from '../../../redux/dateSlice';
+import { Calendar } from 'react-native-calendars';
+import { useDispatch } from 'react-redux';
+import { changeData } from '../../../redux/date/dateSlice';
 
 const CalendarItem = () => {
   const [selected, setSelected] = useState('');
   const dispatch = useDispatch();
 
-  const setDate = day => {
+  const setDate = async day => {
     setSelected(day.dateString);
     dispatch(changeData(day.dateString));
   };
 
   return (
     <SafeAreaView style={styles.calendarBlock}>
-      <View style={styles.calendar}>
-        <Calendar
-          onDayPress={day => {
-            setDate(day);
-          }}
-          markedDates={{
-            [selected]: {
-              selected: true,
-              disableTouchEvent: true,
-              selectedDotColor: 'orange',
-            },
-          }}
-        />
-      </View>
+      <Calendar
+        style={styles.calendar}
+        onDayPress={day => {
+          setDate(day);
+        }}
+        markedDates={{
+          [selected]: {
+            selected: true,
+            disableTouchEvent: true,
+            selectedDotColor: 'orange',
+          },
+        }}
+      />
     </SafeAreaView>
   );
 };
@@ -38,13 +37,11 @@ export default CalendarItem;
 
 const styles = StyleSheet.create({
   calendarBlock: {
-    padding: 5,
+    padding: 10,
     display: 'flex',
-    marginBottom: 50,
+    marginBottom: 10,
   },
-
   calendar: {
-    height: 250,
     backgroundColor: 'white',
   },
 });

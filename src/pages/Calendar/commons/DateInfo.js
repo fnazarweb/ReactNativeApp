@@ -1,56 +1,20 @@
 import { StyleSheet, Text, View } from 'react-native';
 import StatsItemDay from './statsItemDay';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getStatsByDate } from '../../../redux/stats/statsThunk';
+import { useEffect } from 'react';
 
 const DateInfo = () => {
-  const day = useSelector(state => state.date.date);
-  const stats = {
-    message: 'The data were fetched successfully.',
-    data: {
-      date: '2022-04-14',
-      day: 50,
-      resource:
-        'https://www.facebook.com/MinistryofDefence.UA/posts/295952562717203',
-      war_status: {
-        code: 1,
-        alias: 'in_progress',
-      },
-      stats: {
-        personnel_units: 19900,
-        tanks: 753,
-        armoured_fighting_vehicles: 1968,
-        artillery_systems: 366,
-        mlrs: 122,
-        aa_warfare_systems: 64,
-        planes: 160,
-        helicopters: 144,
-        vehicles_fuel_tanks: 1437,
-        warships_cutters: 7,
-        cruise_missiles: 0,
-        uav_systems: 134,
-        special_military_equip: 25,
-        atgm_srbm_systems: 4,
-        submarines: 0,
-      },
-      increase: {
-        personnel_units: 100,
-        tanks: 14,
-        armoured_fighting_vehicles: 4,
-        artillery_systems: 8,
-        mlrs: 7,
-        aa_warfare_systems: 0,
-        planes: 2,
-        helicopters: 1,
-        vehicles_fuel_tanks: 8,
-        warships_cutters: 0,
-        cruise_missiles: 0,
-        uav_systems: 2,
-        special_military_equip: 0,
-        atgm_srbm_systems: 0,
-        submarines: 0,
-      },
-    },
-  };
+  const dispatch = useDispatch();
+  const date = useSelector(state => state.date?.date);
+  const statsByDate = useSelector(state => state.stats?.statsByDate?.data);
+
+  useEffect(() => {
+    dispatch(getStatsByDate(date));
+  }, [dispatch, date]);
+
+  console.log('DATE: ', date);
+
   const terms = {
     message: 'The data were fetched successfully.',
     data: {
@@ -121,78 +85,78 @@ const DateInfo = () => {
   return (
     <View style={styles.dateInfoBlock}>
       <StatsItemDay
-        statsAll={stats.data.stats.personnel_units}
-        statsDay={stats.data.increase.personnel_units}
+        statsAll={statsByDate.stats.personnel_units}
+        statsDay={statsByDate.increase.personnel_units}
         terms={terms.data.personnel_units}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.tanks}
-        statsDay={stats.data.increase.tanks}
+        statsAll={statsByDate.stats.tanks}
+        statsDay={statsByDate.increase.tanks}
         terms={terms.data.tanks}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.armoured_fighting_vehicles}
-        statsDay={stats.data.increase.armoured_fighting_vehicles}
+        statsAll={statsByDate.stats.armoured_fighting_vehicles}
+        statsDay={statsByDate.increase.armoured_fighting_vehicles}
         terms={terms.data.armoured_fighting_vehicles}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.artillery_systems}
-        statsDay={stats.data.increase.artillery_systems}
+        statsAll={statsByDate.stats.artillery_systems}
+        statsDay={statsByDate.increase.artillery_systems}
         terms={terms.data.artillery_systems}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.mlrs}
-        statsDay={stats.data.increase.mlrs}
+        statsAll={statsByDate.stats.mlrs}
+        statsDay={statsByDate.increase.mlrs}
         terms={terms.data.mlrs}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.aa_warfare_systems}
-        statsDay={stats.data.increase.aa_warfare_systems}
+        statsAll={statsByDate.stats.aa_warfare_systems}
+        statsDay={statsByDate.increase.aa_warfare_systems}
         terms={terms.data.aa_warfare_systems}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.planes}
-        statsDay={stats.data.increase.planes}
+        statsAll={statsByDate.stats.planes}
+        statsDay={statsByDate.increase.planes}
         terms={terms.data.planes}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.helicopters}
-        statsDay={stats.data.increase.helicopters}
+        statsAll={statsByDate.stats.helicopters}
+        statsDay={statsByDate.increase.helicopters}
         terms={terms.data.helicopters}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.vehicles_fuel_tanks}
-        statsDay={stats.data.increase.vehicles_fuel_tanks}
+        statsAll={statsByDate.stats.vehicles_fuel_tanks}
+        statsDay={statsByDate.increase.vehicles_fuel_tanks}
         terms={terms.data.vehicles_fuel_tanks}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.warships_cutters}
-        statsDay={stats.data.increase.warships_cutters}
+        statsAll={statsByDate.stats.warships_cutters}
+        statsDay={statsByDate.increase.warships_cutters}
         terms={terms.data.warships_cutters}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.cruise_missiles}
-        statsDay={stats.data.increase.cruise_missiles}
+        statsAll={statsByDate.stats.cruise_missiles}
+        statsDay={statsByDate.increase.cruise_missiles}
         terms={terms.data.cruise_missiles}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.uav_systems}
-        statsDay={stats.data.increase.uav_systems}
+        statsAll={statsByDate.stats.uav_systems}
+        statsDay={statsByDate.increase.uav_systems}
         terms={terms.data.uav_systems}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.special_military_equip}
-        statsDay={stats.data.increase.special_military_equip}
+        statsAll={statsByDate.stats.special_military_equip}
+        statsDay={statsByDate.increase.special_military_equip}
         terms={terms.data.special_military_equip}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.atgm_srbm_systems}
-        statsDay={stats.data.increase.atgm_srbm_systems}
+        statsAll={statsByDate.stats.atgm_srbm_systems}
+        statsDay={statsByDate.increase.atgm_srbm_systems}
         terms={terms.data.atgm_srbm_systems}
       />
       <StatsItemDay
-        statsAll={stats.data.stats.submarines}
-        statsDay={stats.data.increase.submarines}
+        statsAll={statsByDate.stats.submarines}
+        statsDay={statsByDate.increase.submarines}
         terms={terms.data.submarines}
       />
     </View>

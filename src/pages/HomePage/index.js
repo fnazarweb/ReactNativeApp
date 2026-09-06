@@ -6,15 +6,15 @@ import LinearGradient from 'react-native-linear-gradient';
 import Stats from './commons/stats';
 import Header from './commons/header';
 import { useDispatch } from 'react-redux';
-import { addStats } from '../../redux/statsSlice';
+import { getLatestStats } from '../../redux/stats/statsThunk';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const text = 'test';
 
   useEffect(() => {
-    dispatch(addStats(text));
+    dispatch(getLatestStats());
   }, [dispatch]);
+
   return (
     <SafeAreaView edges={['top', 'left', 'right']}>
       <LinearGradient

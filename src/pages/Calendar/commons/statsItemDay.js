@@ -12,8 +12,8 @@ const StatsItemDay = ({ statsAll, statsDay, terms }) => {
       />
       <View style={styles.statsInfo}>
         <View style={styles.statsNumbers}>
-          <Text style={styles.statsAll}>{statsAll}</Text>
           <Text style={styles.statsDay}>(+{statsDay})</Text>
+          <Text style={styles.statsAll}>{statsAll}</Text>
         </View>
 
         <Text style={styles.statsText} numberOfLines={2}>
@@ -26,8 +26,8 @@ const StatsItemDay = ({ statsAll, statsDay, terms }) => {
 
 const styles = StyleSheet.create({
   statsBlock: {
-    width: '28%',
-    height: 120,
+    width: '29%',
+    height: 135,
     marginHorizontal: '2%',
     marginTop: '2%',
     marginBottom: '4%',
@@ -42,11 +42,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 
-  statsNumbers: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-
   statsAll: {
     fontSize: 15,
     color: 'black',
@@ -54,8 +49,7 @@ const styles = StyleSheet.create({
   },
 
   statsDay: {
-    fontSize: 13,
-    marginLeft: 5,
+    fontSize: 12,
     fontWeight: '500',
   },
 
