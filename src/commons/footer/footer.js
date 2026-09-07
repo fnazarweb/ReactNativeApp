@@ -11,12 +11,12 @@ import {
 const Footer = () => {
   return (
     <SafeAreaView style={styles.footer}>
-      <Text style={styles.footerTitle}>Do you want boost stats?</Text>
+      <Text style={styles.footerTitle}>Хочете покращити статистику?</Text>
       <View style={styles.donate}>
         <FontAwesomeIcon icon={faArrowLeft} color="black" size={25} />
         <View style={styles.donateItem}>
           <FontAwesomeIcon icon={faHome} color="black" size={25} />
-          <Text style={styles.donateName}>Come back alive</Text>
+          <Text style={styles.donateName}>Повернись живим</Text>
         </View>
         <FontAwesomeIcon icon={faArrowRight} color="black" size={25} />
       </View>

@@ -4,7 +4,8 @@ import extraReducers from './extraReducers';
 const statsSlice = createSlice({
   name: 'stats',
   initialState: {
-    loading: false,
+    loadingLatest: false,
+    loadingByDate: false,
     latestData: null,
     statsByDate: null,
     error: null,

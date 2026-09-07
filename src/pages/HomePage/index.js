@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import LinearGradient from 'react-native-linear-gradient';
 import Stats from './commons/stats';
 import Header from './commons/header';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getLatestStats } from '../../redux/stats/statsThunk';
+import Loader from '../../commons/loader/modalLoader';
 
 const HomePage = () => {
+  const loading = useSelector(state => state.stats?.loadingLatest);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,9 +18,9 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <SafeAreaView edges={['top', 'left', 'right']}>
+    <SafeAreaView edges={['top', 'left', 'right']} style={styles.container}>
       <LinearGradient
-        colors={['#0057b8', '#ffffff', '#ffd600']}
+        colors={['#4A90D9', '#ffffff', '#F6D96B']}
         start={{ x: 0.0, y: 0.3 }}
         end={{ x: 0.7, y: 1 }}
         locations={[0, 0.45, 0.75]}
@@ -26,6 +28,7 @@ const HomePage = () => {
       >
         <Header />
         <Stats />
+        <Loader visible={loading} />
       </LinearGradient>
     </SafeAreaView>
   );
@@ -35,6 +38,9 @@ var styles = StyleSheet.create({
   linearGradient: {
     height: '100%',
     padding: 5,
+  },
+  container: {
+    backgroundColor: '#4A90D9',
   },
 });
 

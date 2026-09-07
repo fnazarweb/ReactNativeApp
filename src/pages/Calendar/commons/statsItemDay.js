@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 
-const StatsItemDay = ({ statsAll, statsDay, terms }) => {
+const StatsItemDay = ({ statsAll, terms }) => {
   return (
     <View style={styles.statsBlock}>
       <SvgUri
@@ -11,11 +11,7 @@ const StatsItemDay = ({ statsAll, statsDay, terms }) => {
         uri={terms.icon}
       />
       <View style={styles.statsInfo}>
-        <View style={styles.statsNumbers}>
-          <Text style={styles.statsDay}>(+{statsDay})</Text>
-          <Text style={styles.statsAll}>{statsAll}</Text>
-        </View>
-
+        <Text style={styles.statsAll}>{statsAll}</Text>
         <Text style={styles.statsText} numberOfLines={2}>
           {terms.title}
         </Text>
@@ -27,10 +23,9 @@ const StatsItemDay = ({ statsAll, statsDay, terms }) => {
 const styles = StyleSheet.create({
   statsBlock: {
     width: '29%',
-    height: 135,
+    height: 125,
     marginHorizontal: '2%',
-    marginTop: '2%',
-    marginBottom: '4%',
+    marginBottom: '6%',
     padding: 10,
     borderWidth: 1,
     borderRadius: 4,
@@ -45,12 +40,7 @@ const styles = StyleSheet.create({
   statsAll: {
     fontSize: 15,
     color: 'black',
-    fontWeight: '900',
-  },
-
-  statsDay: {
-    fontSize: 12,
-    fontWeight: '500',
+    fontWeight: '700',
   },
 
   statsText: {

@@ -1,0 +1,17 @@
+export const termsKeys = [
+  'personnel_units',
+  'tanks',
+  'armoured_fighting_vehicles',
+  'artillery_systems',
+  'mlrs',
+  'aa_warfare_systems',
+  'planes',
+  'helicopters',
+  'vehicles_fuel_tanks',
+  'warships_cutters',
+  'cruise_missiles',
+  'uav_systems',
+  'special_military_equip',
+  'atgm_srbm_systems',
+  'submarines',
+];

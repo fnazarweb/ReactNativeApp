@@ -37,7 +37,7 @@ const Header = () => {
         <Text style={styles.data}>
           {day} {months[month]}
         </Text>
-        <Text style={styles.day}>{daysNumberOfWar} день війни</Text>
+        <Text style={styles.day}>{daysNumberOfWar}-й день війни</Text>
       </View>
     </View>
   );
