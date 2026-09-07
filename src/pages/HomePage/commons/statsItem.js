@@ -10,7 +10,7 @@ const StatsItem = ({ statsAll, statsDay, terms }) => {
         height={50}
         uri={terms.icon}
       />
-      <View>
+      <View style={styles.statsContent}>
         <View style={styles.statsNumbers}>
           <Text style={styles.statsAll}>{statsAll}</Text>
           <Text style={styles.statsDay}>(+{statsDay})</Text>
@@ -24,17 +24,30 @@ const StatsItem = ({ statsAll, statsDay, terms }) => {
 
 var styles = StyleSheet.create({
   statsBlock: {
-    display: 'flex',
+    width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 10,
     paddingBottom: 10,
     borderBottomWidth: 1,
   },
+
   statsImage: {
-    color: 'black',
     marginRight: 30,
     marginLeft: 10,
+    flexShrink: 0,
+  },
+
+  statsContent: {
+    flex: 1,
+    minWidth: 0,
+    flexShrink: 1,
+  },
+
+  statsNumbers: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
   },
 
   statsAll: {
@@ -42,9 +55,17 @@ var styles = StyleSheet.create({
     color: 'black',
     fontWeight: '900',
   },
-  statsNumbers: { display: 'flex', flexDirection: 'row' },
-  statsDay: { fontSize: 18, marginLeft: 5, fontWeight: '500' },
-  statsText: { fontSize: 18 },
+
+  statsDay: {
+    fontSize: 18,
+    marginLeft: 5,
+    fontWeight: '500',
+  },
+
+  statsText: {
+    fontSize: 18,
+    flexShrink: 1,
+  },
 });
 
 export default StatsItem;

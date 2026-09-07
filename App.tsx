@@ -9,23 +9,10 @@ import Calendar from './src/pages/Calendar/index';
 import { Provider } from 'react-redux';
 import { store } from './src/redux/store';
 import { StatusBar } from 'react-native';
-import { getFCMToken } from './src/commons/helpers/notifications';
-import { useEffect, useState } from 'react';
 
 const Tab = createBottomTabNavigator();
 
 function App() {
-  const [fcmToken, setFcmToken] = useState('');
-  useEffect(() => {
-    const fetchToken = async () => {
-      const token = await getFCMToken();
-      if (token) {
-        setFcmToken(token);
-      }
-    };
-    void fetchToken();
-  }, []);
-
   return (
     <Provider store={store}>
       <NavigationContainer>

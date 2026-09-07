@@ -1,74 +1,75 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Linking } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import {
-  faHome,
-  faArrowRight,
-  faArrowLeft,
-} from '@fortawesome/free-solid-svg-icons';
-
+import { faScissors } from '@fortawesome/free-solid-svg-icons';
 const Footer = () => {
+  const openRusoriz = () => {
+    Linking.openURL('https://www.sternenkofund.org/fundraisings/rusoriz');
+  };
   return (
     <SafeAreaView style={styles.footer}>
-      <Text style={styles.footerTitle}>Хочете покращити статистику?</Text>
-      <View style={styles.donate}>
-        <FontAwesomeIcon icon={faArrowLeft} color="black" size={25} />
-        <View style={styles.donateItem}>
-          <FontAwesomeIcon icon={faHome} color="black" size={25} />
-          <Text style={styles.donateName}>Повернись живим</Text>
+      <View style={styles.container}>
+        <Text style={styles.footerText}>
+          Дякуємо за використання нашого застосунку ❤️
+        </Text>
+        <View style={styles.bottomRow}>
+          <Text style={styles.copyright}>© 2026 War Tracker</Text>
+          <Pressable style={styles.rusoriz} onPress={openRusoriz}>
+            <FontAwesomeIcon icon={faScissors} color="#ff4d4d" size={20} />
+            <Text style={styles.rusorizText}>RUSORIZ</Text>
+          </Pressable>
         </View>
-        <FontAwesomeIcon icon={faArrowRight} color="black" size={25} />
-      </View>
-      <View style={styles.contacts}>
-        <Text style={styles.footerName}>Footer</Text>
-        <FontAwesomeIcon icon={faHome} color="black" size={25} />
       </View>
     </SafeAreaView>
   );
 };
-
 const styles = StyleSheet.create({
   footer: {
-    display: 'flex',
+    backgroundColor: 'transparent',
   },
-  footerTitle: {
-    fontSize: 22,
-    color: 'black',
-    fontWeight: '900',
-    padding: 10,
+
+  container: {
+    alignItems: 'center',
+    paddingVertical: 5,
+  },
+
+  footerText: {
+    width: '100%',
+    paddingHorizontal: 20,
+    fontSize: 15,
+    color: '#a9a9ad',
     textAlign: 'center',
+    marginBottom: 20,
   },
-  donate: {
-    display: 'flex',
+
+  bottomRow: {
+    width: '100%',
+    paddingHorizontal: 20,
     flexDirection: 'row',
-    justifyContent: 'space-around',
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
-  donateItem: {
-    display: 'flex',
+
+  rusoriz: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
     alignItems: 'center',
+    gap: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    backgroundColor: '#2c2c2e',
   },
-  donateName: {
-    fontSize: 20,
-    color: 'black',
-    fontWeight: '900',
-    padding: 10,
-    textAlign: 'center',
+
+  rusorizText: {
+    fontSize: 16,
+    color: '#ffffff',
+    fontWeight: '700',
   },
-  contacts: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  footerName: {
-    fontSize: 14,
-    color: 'black',
-    fontWeight: '500',
-    padding: 10,
+
+  copyright: {
+    fontSize: 15,
+    color: '#6e6e73',
   },
 });
 export default Footer;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import StatsItem from './statsItem';
 import { useSelector } from 'react-redux';
 import Footer from '../../../commons/footer/footer';
